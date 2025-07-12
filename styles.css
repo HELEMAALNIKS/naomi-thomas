@@ -1,0 +1,140 @@
+:root{
+  --sand:#d8c4a3;
+  --paper:#f9f4ef;
+  --terracotta:#ba3508;
+  --sky:#3e8bcf;
+}
+
+*{box-sizing:border-box}
+
+html,body{
+  margin:0;
+  padding:0;
+  font-family:'Delius Swash Caps',cursive;
+  background:var(--sand);
+  color:#3b281a;
+}
+
+/* hero */
+.hero{
+  max-width:680px;
+  margin:0 auto;
+  text-align:center;
+  padding:4rem 1rem 3rem;
+  background:var(--sand);
+  clip-path:polygon(0 10%,0 100%,100% 100%,100% 10%,50% 0);
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+.ribbon{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(135deg,var(--terracotta) 30%,transparent 30% 70%,var(--terracotta) 0),
+    linear-gradient(45deg ,var(--sky)       30%,transparent 30% 70%,var(--sky)       0);
+  background-size:100% 100%;
+  clip-path:polygon(0 0,100% 0,100% 70%,50% 100%,0 70%);
+  mix-blend-mode:multiply;
+  opacity:.75;
+}
+
+h1{
+  font-family:'Berkshire Swash',cursive;
+  font-size:clamp(2.5rem,7vw,4rem);
+  color:var(--terracotta);
+  margin:0;
+}
+
+.date{
+  font-weight:700;
+  font-size:1.25rem;
+  color:var(--terracotta);
+  margin-top:.25rem;
+  letter-spacing:.05em;
+}
+
+/* panel */
+section{
+  max-width:680px;
+  margin:2rem auto;
+  background:var(--paper);
+  padding:2rem 1.5rem;
+  border-radius:12px;
+  box-shadow:0 2px 6px rgba(0,0,0,.08);
+}
+
+h2{
+  text-align:center;
+  margin-top:0;
+  color:var(--terracotta);
+  font-family:'Berkshire Swash',cursive;
+}
+
+ul.links{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:grid;
+  gap:1rem;
+}
+
+ul.links a{
+  display:block;
+  padding:.75rem 1rem;
+  border:2px solid var(--terracotta);
+  border-radius:8px;
+  text-decoration:none;
+  color:var(--terracotta);
+  font-weight:600;
+  text-align:center;
+  transition:.3s;
+}
+
+ul.links a:hover{
+  background:var(--terracotta);
+  color:var(--paper);
+}
+
+footer{
+  text-align:center;
+  font-size:.875rem;
+  padding:2rem 1rem 4rem;
+  color:#674f3b;
+}
+
+/* --- mobiel: tekst onder het lint --- */
+@media(max-width:600px){
+  .hero{
+    padding-top:160px;      /* linthoogte + kleine marge */
+    justify-content:flex-start;
+  }
+  .hero h1{
+    font-size:clamp(6rem,1vw,7rem);
+  }
+  .ribbon {
+    height:150px;
+}
+
+}
+
+/* ---- algemene linkstijl buiten knoppen ---- */
+footer a,
+.date a{
+  color:var(--terracotta);
+  text-decoration:underline;
+  transition:.3s;
+}
+
+footer a:visited,
+.date a:visited{
+  color:var(--terracotta);
+}
+
+footer a:hover,
+.date a:hover{
+  color:#8a2806; /* iets donkerder terracotta */
+}
