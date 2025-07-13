@@ -138,3 +138,73 @@ footer a:hover,
 .date a:hover{
   color:#8a2806; /* iets donkerder terracotta */
 }
+
+/* ===== modal popup ===== */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.5);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:1000;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .3s ease, visibility .3s ease;
+}
+
+.modal.show{
+  opacity:1;
+  visibility:visible;
+}
+
+.modal-content{
+  background:var(--paper);
+  border:2px solid var(--terracotta);
+  border-radius:12px;
+  padding:2rem 1.5rem 1.5rem;
+  max-width:90%;
+  text-align:center;
+  box-shadow:0 4px 10px rgba(0,0,0,.2);
+  transform:translateY(-20px);
+  transition:transform .3s ease;
+}
+
+.modal.show .modal-content{
+  transform:translateY(0);
+}
+
+.modal-content button{
+  display:block;
+  width:100%;
+  margin-top:1.5rem;
+  padding:.75rem 1rem;
+  border:2px solid var(--terracotta);
+  border-radius:8px;
+  background:transparent;
+  color:var(--terracotta);
+  font-size:1rem;
+  font-weight:600;
+  font-family:'Delius Swash Caps',cursive;
+  text-align:center;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.modal-content button:hover{
+  background:var(--terracotta);
+  color:var(--paper);
+}
+
+.envelope-icon{
+  display:block;
+  font-size:3rem;
+  margin:1rem auto 1.5rem;
+  color:var(--terracotta);
+}
+
+/* icon spacing & inherit colour */
+.links .icon{
+  margin-right:.5rem;
+  color:inherit;
+}

@@ -8,6 +8,7 @@
   <!-- lettertypes -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Delius+Swash+Caps&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer">
 
   <!-- externe stijl -->
   <link rel="stylesheet" href="styles.css">
@@ -22,11 +23,21 @@
   <section>
     <!-- <h2>Laat ons iets weten</h2> -->
     <ul class="links">
-      <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfOcCCWr51WAh4z26YtVH9AV1wfLpF_wFs6_Vw12wCiLzxP3Q/viewform?usp=header" target="_blank">Afmelden</a></li>
-      <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfzNQf7OceDQdBaNpRD7tw9nIG5V9KD8R2IHyc1c6P415kyVw/viewform?usp=header" target="_blank">Stukjes</a></li>
-      <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSd5J_aQKgvxIJXsZ5db9FRMp2iwTUyNI1TcPPwN9wT8dNAXZQ/viewform?usp=header" target="_blank">Dieetwensen</a></li>
-      <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScOyjlygpg7q5fyZ8Qbna8RRJQRfTegMsHABb7C2DFZuq4sRQ/viewform?usp=header" target="_blank">Muziekvoorkeur</a></li>
-
+      <li><a href="#" id="gift-link">
+        <i class="fa-solid fa-gift icon"></i>&thinsp;Cadeauwensen
+      </a></li>
+      <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfOcCCWr51WAh4z26YtVH9AV1wfLpF_wFs6_Vw12wCiLzxP3Q/viewform?usp=header" target="_blank">
+        <i class="fa-solid fa-ban icon"></i>&thinsp;Afmelden
+      </a></li>
+      <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfzNQf7OceDQdBaNpRD7tw9nIG5V9KD8R2IHyc1c6P415kyVw/viewform?usp=header" target="_blank">
+        <i class="fa-solid fa-masks-theater icon"></i>&thinsp;Stukjes
+      </a></li>
+      <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSd5J_aQKgvxIJXsZ5db9FRMp2iwTUyNI1TcPPwN9wT8dNAXZQ/viewform?usp=header" target="_blank">
+        <i class="fa-solid fa-carrot icon"></i>&thinsp;Dieetwensen
+      </a></li>
+      <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScOyjlygpg7q5fyZ8Qbna8RRJQRfTegMsHABb7C2DFZuq4sRQ/viewform?usp=header" target="_blank">
+        <i class="fa-solid fa-music icon"></i>&thinsp;Muziekvoorkeur
+      </a></li>
     </ul>
   </section>
 
@@ -37,5 +48,33 @@
     Locatie kasteel: <a href="https://www.google.com/maps?q=Dorpsdijk+65,+Rhoon" target="_blank">Dorpsdijk 65, Rhoon</a>
 
   </footer>
+  <!-- cadeauwensen‑popup -->
+  <div id="gift-modal" class="modal">
+    <div class="modal-content">
+      <p>Mocht u iets willen geven, dan helpt u Thomas en Naomi het meest met een envelopje.</p>
+      <i class="fa-solid fa-envelope envelope-icon"></i>
+      <button id="close-gift">Sluiten</button>
+    </div>
+  </div>
+<script>
+  const modal = document.getElementById('gift-modal');
+  const giftLink = document.getElementById('gift-link');
+  const closeBtn = document.getElementById('close-gift');
+
+  giftLink.addEventListener('click', function (e) {
+    e.preventDefault();
+    modal.classList.add('show');
+  });
+
+  closeBtn.addEventListener('click', function () {
+    modal.classList.remove('show');
+  });
+
+  modal.addEventListener('click', function (e) {
+    if (e.target === modal) {
+      modal.classList.remove('show');
+    }
+  });
+</script>
 </body>
 </html>
